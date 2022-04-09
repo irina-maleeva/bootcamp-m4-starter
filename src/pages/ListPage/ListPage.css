@@ -3,10 +3,25 @@
 }
 
 .list-page__title {
-    font-size: 34px;
     margin-bottom: 26px;
+    font-size: 45px;
+    background: #496DDB;
+    padding: 20px;
+    font-family: 'Luckiest Guy', cursive;
+    color: #FFEEDB;
 }
 
 .list-page ul li {
     font-size: 18px;
+}
+
+.movie-item {
+    padding: 20px;
+    background-color: #FFEEDB;
+    display: flex;
+    align-items: center;
+}
+.movie-item__poster {
+    height: 150px;
+    margin-right: 21px;
 }

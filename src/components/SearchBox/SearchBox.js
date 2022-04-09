@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
 import './SearchBox.css';
+import { connect } from 'react-redux';
+import { getSearchResults } from "../../redux/actions.js";
+import { API_KEY } from "../../config";
+
+const mapDispatchToProps = dispatch => ({
+    getSearchResults: (movies) => dispatch(getSearchResults(movies))
+})
 
 class SearchBox extends Component {
+
     state = {
         searchLine: ''
     }
+
     searchLineChangeHandler = (e) => {
         this.setState({ searchLine: e.target.value });
     }
+
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        fetch(`http://www.omdbapi.com/?s=${this.state.searchLine}&apikey=${API_KEY}`)
+        .then((res) => res.json())
+        .then((data) => {
+            if (!data.Response || data.Response === 'False') return alert('Error');
+            this.props.getSearchResults(data.Search);
+            })
+            .catch((e) => {
+                console.log("error: ", e);
+            })
     }
-    render() {
-        const { searchLine } = this.state;
 
+    render() {
         return (
             <div className="search-box">
                 <form className="search-box__form" onSubmit={this.searchBoxSubmitHandler}>
                     <label className="search-box__form-label">
                         Искать фильм по названию:
                         <input
-                            value={searchLine}
+                            value = {this.state.searchLine}
                             type="text"
                             className="search-box__form-input"
                             placeholder="Например, Shawshank Redemption"
@@ -30,9 +48,8 @@ class SearchBox extends Component {
                     <button
                         type="submit"
                         className="search-box__form-submit"
-                        disabled={!searchLine}
-                    >
-                        Искать
+                        disabled={!this.state.searchLine}>       
+                    Искать
                     </button>
                 </form>
             </div>
@@ -40,4 +57,4 @@ class SearchBox extends Component {
     }
 }
  
-export default SearchBox;
+export default connect(null, mapDispatchToProps) (SearchBox);

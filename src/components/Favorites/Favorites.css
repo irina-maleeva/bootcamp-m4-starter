@@ -31,3 +31,17 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.favorites__save:disabled {
+    cursor: not-allowed;
+    background-color: #bbc2d5;
+}
+
+.link_to_list {
+    border: none;
+    background-color: #62a2e6;
+    padding: 10px 15px;
+    color: #FFEEDB;
+    font-size: 14px;
+    transition: all 0.2s linear;
+}

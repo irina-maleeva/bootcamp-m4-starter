@@ -1,7 +1,7 @@
 # Module 4 project – Movie organizer.
 
 ## Проект: "Доработка органайзера фильмов"
-### стек: JavaScript, HTML, CSS, React, Redux, API
+### JavaScript, HTML, CSS, React, Redux, API
 
 Задание было доработать код проекта (в том числе исправить ошибки за другим разработчиком).
 Изначальный код, от которого надо было стартовать, находится здесь: https://github.com/afon-himself/bootcamp-m4-starter 

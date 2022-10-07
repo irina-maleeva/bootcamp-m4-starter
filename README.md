@@ -22,6 +22,6 @@
 
 Для получения информации о фильме используется API: http://www.omdbapi.com/
 
-### Использованный стек технологий: JavaScript, HTML, CSS, React, Redux, API
+### стек: JavaScript, HTML, CSS, React, Redux, API
 
 
